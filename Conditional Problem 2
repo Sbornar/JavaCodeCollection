@@ -1,0 +1,25 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+public class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		
+		int value;
+
+		Scanner scr = new Scanner(System.in);
+
+		value = scr.nextInt();
+
+		if(value >= 30)
+		{
+			System.out.println("more important");
+		}else
+		{
+			System.out.println("less important");
+		}
+        
+	}
+}
