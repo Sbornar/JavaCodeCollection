@@ -1,0 +1,24 @@
+
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    
+    public static void main(String[] args) {
+        
+        Scanner scr = new Scanner(System.in);
+
+        int value;
+
+        value = scr.nextInt();
+
+        if(value == 28)
+        {
+            System.out.println("i am young");
+        }else
+        {
+            System.out.println("i am not young");
+        }
+        
+    }
+}
