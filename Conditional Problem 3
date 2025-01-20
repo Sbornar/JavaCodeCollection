@@ -1,0 +1,21 @@
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) throws Throwable {
+     
+        int n;
+
+        Scanner scr = new Scanner(System.in);
+
+        n = scr.nextInt();
+
+        if(n > 1)
+        {
+            System.out.println("You entered more");
+        }else
+        {
+            System.out.println("You entered less");
+        }
+    }
+}
