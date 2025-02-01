@@ -1,0 +1,25 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+     char ch;
+
+     Scanner scr = new Scanner(System.in);
+
+     ch = scr.next().charAt(0);
+
+      if(ch >= 'A' && ch <= 'Z')
+      {
+        System.out.println("1");
+      }else if(ch >= 'a' && ch <= 'z')
+      {
+        System.out.println("0");
+      }else
+      {
+        System.out.println("-1");
+      }
+
+
+    }
+}
