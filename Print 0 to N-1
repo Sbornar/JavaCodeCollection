@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+           // write your code here.
+
+           int Ivalue;
+           int iCount= 0;
+
+           Scanner scn = new Scanner(System.in);
+
+           Ivalue = scn.nextInt();
+
+           while(iCount < Ivalue)
+           {
+            System.out.print(iCount+" ");
+            iCount++;
+           }
+    }
+}
