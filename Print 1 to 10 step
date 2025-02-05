@@ -1,0 +1,17 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        //Write your code here 
+
+        int iCount = 1;
+
+        while(iCount <= 10)
+        {
+            System.out.println(iCount);
+            iCount++;
+        }
+
+
+    }
+}
