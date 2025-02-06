@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+          // write your code here
+
+          int Ivalue;
+          int Icount;
+          
+          Scanner scn = new Scanner(System.in);
+
+          Ivalue = scn.nextInt();
+          Icount = Ivalue-1;
+
+          while(Icount >= 0 )
+          {
+            System.out.print(Icount+" ");
+            Icount--;
+          }
+
+
+    }
+}
