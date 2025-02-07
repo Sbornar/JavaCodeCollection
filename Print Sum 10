@@ -1,0 +1,19 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) throws Throwable {
+        
+        // your code here
+
+        int sum =0;
+
+        int iCount =1;
+
+        for(iCount=1; iCount <= 10 ;iCount++)
+        {
+            sum += iCount;
+        }
+        System.out.println(sum);
+        
+    }
+}
