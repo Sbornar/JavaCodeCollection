@@ -1,0 +1,25 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+   
+       // write your code here   
+		
+        long iValue;
+        long sum = 0;
+        long iCount =1;
+
+        Scanner scn = new Scanner(System.in);
+
+        iValue = scn.nextLong();
+
+        while(iCount <= iValue)
+        {
+            sum +=  iCount;
+            iCount++;
+        }
+        System.out.println(sum);
+    }
+
+}
+    
