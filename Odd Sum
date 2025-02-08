@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+             // write yo code here
+
+             long lvalue ;
+             long lcount = 1;
+             long lsum = 0;
+
+             Scanner scn = new Scanner(System.in);
+
+             lvalue = scn.nextLong();
+
+             while(lcount <= lvalue)
+             {
+                if(lcount % 2 != 0)
+                {
+                    lsum += lcount;
+                }
+                lcount++;
+             }
+             System.out.println(lsum);
+    }
+}
