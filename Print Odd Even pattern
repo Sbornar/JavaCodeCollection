@@ -1,0 +1,39 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+           
+           long N;
+           long iCount = 1,icnt = 0 ,value = 0;
+
+           Scanner sc = new Scanner(System.in);
+           N = sc.nextLong();
+
+           while(iCount <= N)
+           {
+              if(value == 0)
+              {
+                System.out.print(iCount+" ");
+              }
+              icnt++;
+
+              if(value > 0)
+              {
+                value--;
+                icnt = 0;
+              }
+
+              if(icnt == 2)
+              {
+                value = icnt;
+                icnt = 0;
+              }
+              iCount++;
+           }
+
+
+
+
+
+    }
+}
