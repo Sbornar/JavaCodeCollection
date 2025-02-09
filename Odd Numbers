@@ -1,0 +1,25 @@
+import java.util.*;
+  
+class Main {
+	public static void main(String args[]) {
+		Scanner sc=new Scanner(System.in);
+		
+
+		long ivalue ;
+		long icount = 0;
+
+		while(true)
+		{
+           ivalue = sc.nextLong();
+           icount++;
+		   if(ivalue % 2 != 0)
+		   {
+               break;
+		   }
+		}
+		System.out.println(icount);
+		
+
+		
+	}
+}
