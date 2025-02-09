@@ -1,0 +1,18 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+		//Write your code here
+
+        int iDigit = 0;
+
+        while(n != 0)
+        {
+            iDigit = n % 10;
+            System.out.print(iDigit);
+            n = n /10;
+        }
+    }
+}
