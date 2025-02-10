@@ -1,0 +1,19 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        // Your code here
+        int iDigit = 0,iSum = 0;
+
+        while(n != 0)
+        {
+            iDigit = n %10;
+            iSum += iDigit;
+            n = n /10;
+        }
+
+        System.out.println(iSum);
+    }
+}
