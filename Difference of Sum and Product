@@ -1,0 +1,31 @@
+import java.util.Scanner; 
+import java.io.*; 
+
+public class Main {
+    public static void main(String[] args) {
+           // write your code here
+
+           int Value = 0;
+           int iDigit = 0;
+           int product =1 , Sum = 0;
+           int Result = 0;
+
+           Scanner sc = new Scanner(System.in);
+
+           Value = sc.nextInt();
+
+           while(Value != 0)
+           {
+              iDigit = Value %10;
+              product = product* iDigit;
+              Sum = Sum +iDigit;
+              Value=Value/ 10;
+           }
+           Result = product-Sum;
+           System.out.println(Result);
+
+
+
+
+    }
+}
