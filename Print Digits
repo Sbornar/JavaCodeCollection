@@ -1,0 +1,36 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        // Write your code here
+
+        int Number = 0;
+        int iDigit = 0,Count = 0,ReverseDigit =0;
+
+        Scanner sc = new Scanner(System.in);
+
+        Number = sc.nextInt();
+
+        while(Number != 0)
+        {
+            iDigit = Number%10;
+
+            ReverseDigit = ReverseDigit * 10;
+            ReverseDigit = ReverseDigit + iDigit;
+
+            Number = Number / 10;
+            Count++;
+            
+        }
+
+        while(Count > 0)
+        {
+            iDigit = ReverseDigit % 10;
+            System.out.println(iDigit);
+            ReverseDigit = ReverseDigit/10;
+            Count--;
+        }
+        
+    }
+}
