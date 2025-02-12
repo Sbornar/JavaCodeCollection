@@ -1,0 +1,45 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String args[]) {
+       
+
+        //Write your code here and print the required output
+
+        int number = 0,count = 0,iDigit = 0,ReverseNumber = 0;
+        int check1 = 0,check2 = 0,GivenValue = 0;
+        boolean bvalue = true;
+
+        Scanner sc = new Scanner(System.in);
+        number = sc.nextInt();
+        GivenValue = number;
+        while(number != 0)
+        {
+            iDigit = number % 10;
+            ReverseNumber = ReverseNumber * 10;
+            ReverseNumber = ReverseNumber + iDigit;
+            number = number / 10;
+            count++;
+        }
+          
+    
+
+        while(count > 0)
+        {
+            check1 = GivenValue % 10;
+            check2 = ReverseNumber % 10;
+
+            if(check1 != check2)
+            {
+                bvalue  = false;
+            }
+            GivenValue = GivenValue /10;
+            ReverseNumber = ReverseNumber /10;
+            count--;
+
+        }
+
+        System.out.println(bvalue);
+    }
+}
+
