@@ -1,0 +1,26 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        sc.close();
+        // your code here
+
+        int Count = 1 , HCF = 0;
+
+        while(Count <= a && Count <= b)
+        {
+            if(a % Count == 0 && b % Count == 0)
+            {
+                HCF = Count;
+            }
+            Count++;
+        }
+        System.out.println(HCF);
+
+
+        
+    }
+}
