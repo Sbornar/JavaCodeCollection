@@ -1,0 +1,58 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String args[]) {
+       
+              
+           
+
+         int LargeNumber = Integer.MIN_VALUE;
+         int SmallNumber = Integer.MAX_VALUE;
+         int Number = 0;
+         char cValue = 'y';
+         boolean bvalue = true;
+          
+        Scanner sc = new Scanner(System.in);
+      while(true)
+      {
+         
+         
+
+        if((cValue == 'y') || (cValue == 'Y'))
+        {
+            
+         
+           
+            Number = sc.nextInt();
+            
+            if(Number > LargeNumber)
+            {
+                LargeNumber = Number;
+
+                if(bvalue == true)
+                {
+                    SmallNumber = LargeNumber;
+                    bvalue = false;
+                }
+            }
+            
+            if(Number < SmallNumber)
+            {
+                SmallNumber = Number;
+            }
+
+            cValue = sc.next().charAt(0);
+            
+        }else
+        {
+            break;
+        }
+
+      }
+      System.out.println("Largest number: "+LargeNumber);
+      System.out.println("Smallest number: "+SmallNumber);
+     
+      
+     }
+}
