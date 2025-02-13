@@ -1,0 +1,24 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String args[]) {
+        Scanner input = new Scanner(System.in);
+        int n = input.nextInt();
+		input.close();
+        // Write your code here
+
+       long fact=1 ;
+       long Count = 1;
+
+       while(Count <= n)
+       {
+          fact *= Count;
+          Count++;
+       }
+
+       System.out.println(fact);
+
+
+
+    }
+}
