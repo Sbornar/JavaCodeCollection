@@ -1,0 +1,31 @@
+import java.util.*;
+
+public class Main {
+
+  public static void main(String[] args) {
+    
+	
+	//Write code here
+          
+
+          int iResult = 0, IlastValue = 0,INextValue = 1;
+          int iCount = 1, N = 0;
+
+          Scanner sc = new Scanner(System.in);
+
+          N = sc.nextInt();
+
+          System.out.println(IlastValue);
+          System.out.println(INextValue);
+          while(iCount <= N -2)
+          {
+             iResult = IlastValue + INextValue;
+             IlastValue = INextValue;
+             INextValue = iResult;
+             System.out.println(iResult);
+             iCount++;
+          }
+
+     
+  }
+}
