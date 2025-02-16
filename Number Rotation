@@ -1,0 +1,38 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        // Write your code here
+        Scanner sc = new Scanner(System.in);
+        int n, k;
+        n = sc.nextInt();
+        k = sc.nextInt();
+        sc.close();
+
+        int CollectedNumber = 0,Count = 1,iDigit = 0;
+
+        if(k > 0)
+        {
+            while(n != 0 && Count <= k)
+            {
+                iDigit = n%10;
+                CollectedNumber = CollectedNumber * 10;
+                CollectedNumber = CollectedNumber + iDigit;
+               
+                n = n / 10;
+
+
+
+                System.out.println(n);
+                CollectedNumber = CollectedNumber * 10;
+                CollectedNumber = CollectedNumber + n;
+                Count++;
+            }
+       
+        }
+        System.out.println(CollectedNumber);
+
+
+    }
+}
