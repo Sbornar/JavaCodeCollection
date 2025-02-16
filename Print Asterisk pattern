@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+            // write your code here
+
+        int  group = 0 , star = 1;
+
+        Scanner sc = new Scanner(System.in);
+
+        group =sc.nextInt();
+
+        for(int row = 1 ; row <= group ; row++)
+        {
+            for(star = 1; star <= row ;star++)
+            {
+                System.out.print("*");
+            }
+            System.out.print(" ");
+        }
+
+
+
+    }
+}
