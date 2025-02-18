@@ -1,0 +1,35 @@
+import java.util.*; 
+
+class Main {
+
+    public static void main(String args[]) {
+           // write your code here
+          
+          int n  = 0;
+          Scanner sc = new Scanner(System.in);
+          n = sc.nextInt();
+
+          int space = 0;
+          int star = n;
+        
+
+        for(int i=1;i<=n;i++)
+        {
+          
+            for(int count= 1; count <=space ; count++)
+          {
+            System.out.print("  ");
+          }
+          for(int count = 1;count<=star;count++)
+          {
+            System.out.print("* ");
+          }
+        
+          space++;
+          star--;
+          System.out.println();
+        }
+
+
+    }
+}
