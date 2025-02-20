@@ -1,0 +1,39 @@
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n;
+        n = sc.nextInt();
+        sc.close();
+        // write code here
+  
+        char ch='A';
+        int count= 0;
+        char chr = 'A'+3;
+      // System.out.println(chr);
+     
+        for(int i=1;i<=n;i++)
+        {   
+            ch =(char)('A'+i-1);
+
+            for(int j=i ; j>=1;j--)
+            {   
+               
+                System.out.print(ch);
+
+                if(ch =='Z')
+                {
+                    ch='A';
+                }else
+                {
+                    ch++;
+                }
+                
+            }
+            
+            System.out.println();
+        }
+    }
+}
