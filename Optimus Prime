@@ -1,0 +1,32 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) throws Throwable {
+        Scanner sc = new Scanner(System.in);
+        long n = sc.nextLong();
+        // Your code here
+        boolean bvalue = true;
+
+        
+        for(long i = 1 ; i<=n ; i++)
+        {
+            bvalue = true;
+
+            for(long j = 2 ; j*j <= i ;j++)
+            {
+                if(i % j ==0)
+                {
+                    bvalue = false;
+                    break;
+
+                }
+            }
+            if((bvalue == true )&&( i != 1))
+            {
+                System.out.println(i);
+
+            }
+            
+        }
+    }
+}
