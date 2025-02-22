@@ -1,0 +1,49 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+           // write your code here
+
+           Scanner sc = new Scanner(System.in);
+
+           int m = sc.nextInt();
+           int n = sc.nextInt();
+
+           int exponent = 0,value = 0,digitvalue = 0;
+           int sum = 0, totalsum = 0,idigit = 0,temp = 0;
+
+           for(temp = m; temp <= n ; temp++)
+           {
+             idigit = temp;
+
+             while(idigit != 0)
+             {
+                exponent++;
+                idigit /=10;
+             }
+             value = temp;
+             while(value != 0)
+             {
+                digitvalue = value%10;
+                sum = (int)Math.pow(digitvalue,exponent);
+                totalsum = totalsum+sum;
+                value = value/10;
+             }
+
+             if(totalsum == temp)
+             {
+                System.out.print(totalsum+" ");
+                exponent=0;
+                totalsum = 0;
+             }
+             else
+             {
+                exponent = 0;
+                totalsum = 0;
+             }
+           }
+            
+             
+        
+    }
+}
