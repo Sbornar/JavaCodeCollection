@@ -1,0 +1,37 @@
+import java.util.*;
+
+public class Main {
+
+    static long calculate_nCr(int n, int r) {
+        // write code here
+       long FactorialOfN=1, FactorialOfR=1,FactorialOf_N_And_R = 1;
+       long N_R_Factorila = n-r;
+       long result =0;
+
+        for(int i = 1 ;i<= n ; i++)
+        {
+           FactorialOfN = FactorialOfN *i;
+        }
+        for(int i = 1; i<=r;i++)
+        {
+            FactorialOfR = FactorialOfR * i;
+        }
+        for(int i= 1; i<= N_R_Factorila;i++)
+        {
+            FactorialOf_N_And_R =FactorialOf_N_And_R * i;
+        }
+
+        result = (FactorialOfN)/(FactorialOfR * FactorialOf_N_And_R);
+
+        return result;
+
+    }
+	
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int r = scanner.nextInt();
+        long ans = calculate_nCr(n,r);
+        System.out.print(ans);
+    }
+}
