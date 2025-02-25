@@ -1,0 +1,23 @@
+import java.io.*;
+
+import java.util.*;
+
+public class Main {
+
+	static int fun(int n){
+       // write code here
+        int result = 0;
+
+        result = n+5;
+        return result;
+
+    }
+	
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n;
+        n = sc.nextInt();
+        int result = fun(n);
+        System.out.print(result);
+    }
+}
