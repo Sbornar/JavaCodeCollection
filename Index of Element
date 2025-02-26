@@ -1,0 +1,33 @@
+import java.util.*;
+
+public class Main {
+    public static void IndexOfElement(int N, int X, int[] arr){
+        //write code and print here
+       boolean bvalu = false;
+        for(int idx = 0;idx < arr.length;idx++)
+        {
+            if(arr[idx] == X)
+            {
+                System.out.print(idx+1 +" ");
+                bvalu = true;
+            }
+        }
+        if(bvalu == false)
+        {
+            System.out.print("-1");
+        }
+
+    }
+    public static void main(String[] args) throws Throwable {
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        int X = sc.nextInt();
+
+        int arr[]=new int[N];
+        for(int i = 0; i < N; i++)
+        {
+            arr[i] = sc.nextInt();
+        }
+        IndexOfElement(N,X,arr);
+    }
+}
