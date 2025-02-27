@@ -1,0 +1,41 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+
+        int[] arr = new int[n];
+        for(int i = 0; i < n; i++)
+                arr[i] = scanner.nextInt();
+
+        ArrayOperations(arr, n);
+    }
+
+    public static void ArrayOperations(int[] arr, int n) 
+    {
+        // Write your code here
+
+        int Sum = 0 , Avg = 0;
+        int Max = arr[0];
+
+        for(int count = 0;count < arr.length ; count++)
+        {
+            Sum = Sum + arr[count];
+        }
+        
+        Avg = Sum/arr.length;
+
+        for(int count = 0; count < arr.length ; count++)
+        {
+              if(Max < arr[count])
+              {
+                 Max = arr[count];
+              }
+        }
+
+        System.out.println(Sum+" "+Avg+" "+Max);
+
+
+    }
+}
