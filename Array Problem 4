@@ -1,0 +1,59 @@
+import java.io.*;
+import java.util.*;
+
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n;
+        
+        n = sc.nextInt();
+        int []arrA=new int[n];
+        for(int i=0;i<n;++i){
+                arrA[i]=sc.nextInt();
+        }
+        
+        n = sc.nextInt();
+        int []arrB=new int[n];
+        for(int i=0;i<n;++i){
+            arrB[i]=sc.nextInt();
+        }
+        
+        System.out.println(ArrayProblem(arrA,arrB)); 
+    }
+    public static String ArrayProblem(int []arrA,int []arrB){
+       // Write code here
+        
+        int SumOfFirstArray = 0;
+        int SumOfSecondArray =0;
+        String FirstArrayLarge ="First array is larger";
+        String SecondArrayLarge ="Second array is larger";
+        String BothArraySame ="Both are equal";
+
+        SumOfFirstArray = SumOfArray(arrA);
+        SumOfSecondArray = SumOfArray(arrB);
+
+        if(SumOfFirstArray>SumOfSecondArray)
+        {
+            return FirstArrayLarge;
+        }else if(SumOfFirstArray <SumOfSecondArray)
+        {
+            return SecondArrayLarge;
+        }
+        return BothArraySame;
+
+
+
+    }
+
+    public static int SumOfArray(int[] arr)
+    {
+         int TotalSumOfArray = 0;
+
+         for(int idx = 0 ; idx < arr.length;idx++)
+         {
+            TotalSumOfArray = TotalSumOfArray +arr[idx];
+         }
+         return TotalSumOfArray;
+    }
+}
