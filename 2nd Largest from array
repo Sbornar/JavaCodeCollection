@@ -1,0 +1,45 @@
+import java.io.*;
+import java.util.*;
+
+
+public class Main {
+    public static void SecondLargest(int[] arr, int n) {
+        // Write code here
+
+       int LargestValue =Integer.MIN_VALUE;
+       int SecondLargestValue =Integer.MIN_VALUE;
+
+       for(int idx = 0; idx < n ; idx++)
+       {
+          if(LargestValue < arr[idx])
+          {
+            SecondLargestValue = LargestValue;
+            LargestValue = arr[idx];
+          }
+          else if(SecondLargestValue < arr[idx])
+          {
+              SecondLargestValue = arr[idx];
+              
+         
+          }
+
+      
+       }
+        System.out.println(SecondLargestValue);
+    }
+
+    public static void main(String[] args) 
+    {
+        Scanner sc = new Scanner(System.in);
+
+        int n= sc.nextInt();
+        int[] arr= new int[n];
+
+        for(int i=0;i<n;i++)
+            arr[i]=sc.nextInt();
+            
+        SecondLargest(arr,n);
+        sc.close();
+        
+    }
+}
