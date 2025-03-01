@@ -1,0 +1,64 @@
+import java.util.*;
+
+public class Main {
+  static int[] calSum(int a[], int b[], int n, int m) 
+  {
+    // your code here
+         int value = Math.max(n,m);
+
+         int[] result = new int[value];
+
+         int i = n-1;
+         int j = m-1;
+         int idx = result.length-1;
+         int sum=0;
+         int carry = 0;
+
+         for(;idx>=0;idx--,i--,j--)
+         {
+            if(i>=0)
+            {
+               sum = sum + a[i];
+            }
+            if(j>=0)
+            {
+               sum = sum + b[j];
+            }
+            if(idx >= 0)
+            {
+               sum = sum + carry;
+               result[idx] = sum % 10;
+               carry = sum/10;
+               sum = 0;
+            }
+         }
+         if(carry > 0)
+         {
+            int[] Ans = new int[(result.length+1)];
+            Ans[0] = carry;
+
+            for(int id = 0; id < (Ans.length-1);id++)
+            {
+               Ans[id+1] = result[id];
+            }
+            return Ans;
+         }
+         return result;
+   }
+
+  /* Driver program to test above function */
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    int n1 = sc.nextInt();
+    int[] arr1 = new int[n1];
+    for (int i = 0; i < n1; i++) arr1[i] = sc.nextInt();
+
+    int n2 = sc.nextInt();
+    int[] arr2 = new int[n2];
+    for (int i = 0; i < n2; i++) arr2[i] = sc.nextInt();
+    sc.close();
+
+    int[] res = calSum(arr1, arr2, n1, n2);
+    for (int i : res) System.out.println(i);
+  }
+}
