@@ -1,0 +1,50 @@
+import java.util.*;
+
+class Solution {
+    public int LargestElement(int[] nums, int n) {
+        // Write your code here
+
+        int Index = 0;
+        int LargestElement=Integer.MIN_VALUE;
+        int i =0;
+        while( i<n)
+        {
+            if(LargestElement < nums[i])
+            {
+                LargestElement= nums[i];
+                Index = i;
+            }
+            i++;
+        }
+
+        for(int idx = 0; idx < n; idx++)
+        {
+            if(idx != Index)
+            {
+                if((nums[idx]+nums[idx]) > LargestElement)
+                {
+                    return -1;
+                }
+            }
+        }
+        return Index;
+
+
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n;
+        n = sc.nextInt();
+        int[] nums = new int[n];
+
+        for(int i = 0; i < n; i++) {
+            nums[i] = sc.nextInt();
+        }
+
+        Solution Obj = new Solution();
+        System.out.println(Obj.LargestElement(nums, n));
+    }
+}
