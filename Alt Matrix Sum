@@ -1,0 +1,48 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n;
+        n = sc.nextInt();
+        int [][]mat=new int[n][n];
+        for(int i=0;i<n;++i){
+            for(int j=0;j<n;++j){
+                mat[i][j]=sc.nextInt();
+            }
+        }
+        alternateMatrixSum(mat,n);  
+        System.out.println('\n');
+    }
+
+    public static void alternateMatrixSum(int [][]mat, int n) {
+           // your code here
+         int black  =0;
+         int white = 0;
+
+         int m = n;
+        
+
+         for(int row = 0;row<m;row++)
+         {
+            for(int col = 0;col<n;col++)
+            {
+                if((row + col)%2 == 0)
+                {
+                    black = black + mat[row][col];
+                   
+                }else 
+                {
+                    white = white + mat[row][col];
+                   
+                }
+            }
+         }
+
+         System.out.println(black);
+         System.out.println(white);
+
+
+    }
+}
