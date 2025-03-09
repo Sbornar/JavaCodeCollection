@@ -1,0 +1,63 @@
+import java.util.*;
+
+public class Main {
+    public static int maximaMinima(int[][] mat) {
+        //Write code here
+       int largeValue =  Integer.MIN_VALUE;
+       int SmallValue = Integer.MAX_VALUE;
+
+       int result =0;
+       int m = mat.length;
+       int n = mat[0].length;
+       int lowestIndex = -1;
+       
+
+      
+      
+       
+       for(int row = 0;row<m ; row++)
+       { 
+          
+         for(int col = 0;col<n;col++)
+          {
+                if(mat[row][col] < SmallValue)
+                {
+                    SmallValue = mat[row][col];
+                    lowestIndex = col;
+                } 
+          }
+          for(int index = 0 ; index<m;index++){
+              if(mat[index][lowestIndex] > largeValue)
+                {
+                    largeValue=mat[index][lowestIndex];
+                } 
+          }
+
+          if(largeValue==SmallValue)
+          {
+            
+            return largeValue;
+          }
+
+        largeValue = Integer.MIN_VALUE;
+        SmallValue = Integer.MAX_VALUE; 
+
+       }
+       return -1;
+
+
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n;
+        n = sc.nextInt();
+        int[][] matrix = new int[n][n];
+        for (int i = 0; i < n; i++)
+            for (int j = 0; j < n; j++)
+                matrix[i][j] = sc.nextInt();
+        int result = maximaMinima(matrix);
+        System.out.println(result);
+        sc.close();
+    }
+}
