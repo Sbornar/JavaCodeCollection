@@ -1,0 +1,66 @@
+import java.io.*;
+import java.util.*;
+
+class Solution{
+    static boolean special(int matrix[][], int n){
+         //Write code here
+
+        
+
+        int i = 0,j = 0;
+        int idxi =0,idxj = n-1;
+        int check  =0;
+
+        while(i<n && j<n)
+        {
+            if(i==j)
+            {
+                if(matrix[i][j] ==0 || matrix[idxi][idxj] == 0)
+                {
+                    return false;
+                }
+                check= idxj;
+            }
+
+            for(int indexi = i;indexi<=i;indexi++)
+            {
+                for(int indexj = 0;indexj<n;indexj++)
+                {
+                    if(indexi != indexj && check != indexj)
+                    {
+                        if(matrix[indexi][indexj]!=0)
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+            i++;
+            j++;
+            idxi++;
+            idxj--;
+        } 
+        return true;
+
+
+        
+    }
+}
+class Main{
+    public static void main(String args[])throws IOException{
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+        while(t-- > 0){
+            int n = sc.nextInt();
+            int matrix[][] = new int[n][n];
+            
+            for(int i = 0; i < n; i++){
+                for(int j = 0; j < n; j++)
+                 matrix[i][j] = sc.nextInt();
+            }
+            Solution ob = new Solution();
+            boolean ans = ob.special(matrix, n);
+            System.out.println(ans);
+        }
+    }
+}
