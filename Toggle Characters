@@ -1,0 +1,43 @@
+import java.util.*;
+
+public class Main {
+
+  public static void main(String[] args) throws Throwable {
+    Scanner sc = new Scanner(System.in);
+    int n = sc.nextInt();
+    sc.nextLine();
+    String str = sc.nextLine();
+    toggleCase(n, str);
+  }
+
+  static void toggleCase(int n, String str) {
+    // your code here
+      
+      for(int i = 0;i<n;i++)
+      {
+        char chr = str.charAt(i);
+
+        if(chr>='a' && chr<='z')
+        {
+          chr = (char)(chr-32);
+        }else if(chr >='A' && chr <='Z')
+        {
+          chr = (char)(chr+32);
+
+        }
+        System.out.print(chr);
+      }
+   
+   
+   
+   
+
+    }
+
+
+
+
+
+
+  
+}
