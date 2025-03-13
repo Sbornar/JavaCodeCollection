@@ -1,0 +1,36 @@
+import java.io.*;
+import java.lang.*;
+import java.util.*;
+
+class Main {
+
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    int t = sc.nextInt();
+    String p = sc.nextLine();
+    while (t > 0) {
+      String s = sc.nextLine();
+      System.out.println(countWords(s));
+      t--;
+    }
+  }
+
+  public static int countWords(String s) {
+    // your code here
+    int count = 0;
+    int value = 0;
+    for(int idx = 0;idx<s.length();idx++)
+    {
+      if(s.charAt(idx) !=' ' && value == 0)
+      {
+        count++;
+        value = 1;
+
+      }else if(s.charAt(idx) == ' ')
+      {
+        value  =0;
+      }
+    }
+    return count;
+  }
+}
