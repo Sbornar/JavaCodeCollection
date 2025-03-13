@@ -1,0 +1,69 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) throws Throwable {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        ArrayList<Integer> triangle = pascalTriangleRow(n);
+        for (int i = 0; i < triangle.size(); i++) {
+            System.out.print(triangle.get(i) + " ");
+        }
+    }
+
+	public static ArrayList<Integer> pascalTriangleRow(int numRows) {
+        // write code here
+        
+         ArrayList<Integer> list = new ArrayList<>();
+          ArrayList<Integer> result = new ArrayList<>();
+
+        int index = -1;
+        int value1 = 0;
+        int value2 = 0;
+        int CountRow = 0;
+
+        for(int i = 0;i<numRows;i++)
+        {
+            
+            if(i < 2)
+            {
+                for(int j = 0;j<=i;j++)
+                {
+                    list.add(1);
+                    index++;
+
+                
+                }
+            }    
+            else 
+            {
+                list.add(1);
+                index++;
+
+                for(int idx = 0; idx <i-1;idx++)
+                {
+                    value1 = list.get(index-i);
+                    value2 = list.get(index-i+1);
+
+                    list.add(value1+value2);
+                    index++;
+                }
+                list.add(1);
+                index++;
+            }
+            CountRow = i;
+        }
+        
+        for(int idx = index-CountRow; idx<=index;idx++)
+        {
+            result.add(list.get(idx));
+        }
+        
+
+
+        return result;
+
+
+
+    }
+}
+
