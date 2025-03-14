@@ -1,0 +1,57 @@
+import java.util.*;
+import java.io.*;
+
+public class Main {
+     public  static void isPangram(String s)
+      {
+           // Your code here
+          int valueOFSmall = 97;
+          int valueOfbig = 65;
+          boolean bvalue = true;
+          
+
+          while(valueOfbig<=90 && valueOFSmall<=122 && bvalue == true)
+          {  
+               char ch = (char)valueOFSmall;
+               char CH = (char)valueOfbig;
+               int number = 0;
+
+
+               for(int i=0;i<s.length();i++)
+               {
+                    if(CH == s.charAt(i) || ch == s.charAt(i))
+                    {
+                         number++;
+                    }
+               }
+
+               if(number > 0)
+               {
+                    bvalue = true;
+                    number = 0;
+               }else
+               {
+                    bvalue = false;
+               }
+             
+
+
+             valueOfbig++;
+             valueOFSmall++;
+          }
+          if(bvalue == true)
+          {
+               System.out.println("pangram");
+          }else{
+               System.out.println("not pangram");
+          }
+
+
+    }
+    public static void main(String args[]) {
+   Scanner input = new Scanner(System.in);
+        String s = input.nextLine();
+        isPangram(s);
+        
+    }
+}
