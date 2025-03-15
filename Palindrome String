@@ -1,0 +1,70 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+	static int isPalindrome(String str)
+      {
+              //write code here
+              str = str.toLowerCase();
+              String str1 = str;
+
+              int endIndex = str1.length()-1;
+              int startIndex = 0; 
+              char lastValue=str1.charAt(endIndex);
+              char startvalue=str.charAt(startIndex);
+              for(int i =0;i<str.length();i++)
+              {
+                while(startIndex < str.length() )
+                {
+                  if(str.charAt(startIndex)>='a' && str.charAt(startIndex)<='z' )
+                  {
+
+                    startvalue = str.charAt(startIndex);  
+                    startIndex++;
+                    break; 
+                    
+                  }
+                   startIndex++;
+                  
+                   
+                 }
+
+                  while(endIndex >= 0 )
+                {
+                  if(str.charAt(endIndex)>='a' && str.charAt(endIndex)<='z' )
+                  {
+
+                    lastValue= str.charAt(endIndex);  
+                    endIndex--;
+                    break; 
+                    
+                  }
+                   endIndex--;
+                  
+                   
+                 }
+                 if(startvalue != lastValue)
+                 {
+                    return 0;
+                 }
+
+
+
+
+              }
+              return 1;
+
+
+
+
+
+
+
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str=sc.nextLine();
+        int result = isPalindrome(str);
+        System.out.println(result);        
+    }
+}
