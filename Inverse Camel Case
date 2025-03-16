@@ -1,0 +1,42 @@
+import java.io.*;
+import java.util.*;
+public class Main {
+  
+  public static void solution(String str) {
+
+
+    int count =0;
+    for(int idx = 0;idx<str.length();idx++)
+    {
+       if(str.charAt(idx)>='A' && str.charAt(idx)<='Z')
+       {
+         
+           System.out.print(str.charAt(idx));
+           
+       }else
+       {
+           System.out.print(str.charAt(idx));
+       }
+       if(idx < str.length()-1)
+       {
+         idx++;
+       
+       if(str.charAt(idx)>='A' && str.charAt(idx)<='Z')
+       {
+         System.out.println();
+         idx--;
+       }else{
+        idx--;
+       }
+       }
+
+    }
+
+  }
+
+  public static void main(String[] args) {
+    Scanner scn = new Scanner(System.in);
+    String str = scn.next();
+    solution(str);
+  }
+}
