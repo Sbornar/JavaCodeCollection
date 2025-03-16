@@ -1,0 +1,41 @@
+import java.util.*;
+import java.io.*;
+
+public class Main {
+	static void compressedString(String s) {
+        
+         // write your code here
+         System.out.print(s.charAt(0));
+         int count = 1;
+
+         for(int idx = 1;idx<s.length();idx++)
+         {
+            char currch =s.charAt(idx);
+            char prev = s.charAt(idx-1);
+
+            if(currch == prev) count++;
+
+            else{
+                if(count>1) System.out.print(count);
+
+                System.out.print(currch);
+                 count = 1;
+                }
+         }
+         if(count>1)
+         {
+            System.out.print(count);
+         }
+    }
+    
+    public static void main(String[] args) throws IOException {
+        BufferedReader br= new BufferedReader(new InputStreamReader(System.in));
+        int t=Integer.parseInt(br.readLine());
+        while(t-- > 0){
+            String s = br.readLine();
+            compressedString(s);
+            System.out.println();
+        }
+    }
+}
+
