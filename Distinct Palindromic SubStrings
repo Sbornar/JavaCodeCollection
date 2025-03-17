@@ -1,0 +1,14 @@
+import java.util.*;
+
+public class Main {
+    static void palindromeSubStrs(String s) {
+        //Write your code here
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+
+        palindromeSubStrs(s);
+    }
+}
