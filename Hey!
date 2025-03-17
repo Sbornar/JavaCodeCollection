@@ -1,0 +1,67 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+       static String hey(String str)
+      {
+           // Your code here
+            
+            int countE = 0;
+            int positionOFE = 0;
+            boolean bvalue = true;
+            String newStr = "";
+            String addE = "";
+
+
+           for(int i = 0; i<str.length();i++)
+           {
+              if(str.charAt(i) == 'e' )
+              {
+                countE++;
+              }
+              if(str.charAt(i)== 'e' && bvalue == true)
+              {
+                 positionOFE = i;
+                 bvalue = false;
+              }   
+           }
+
+           for(int i = 0;i<countE;i++)
+           {
+               addE = addE+"e";
+           }
+
+          newStr = str.substring(0,positionOFE)+addE+str.substring(positionOFE);
+
+          return newStr;
+        //   //your code here
+		// String str = "hello";
+		// String newstr = "";
+		// int insertPosition = 3;
+		//  String modified= "";
+
+		//  for(int i= 0;i<3;i++)
+		//  {
+        //     newstr = newstr+"e";
+		//  }
+          
+		//   System.out.println(newstr);
+		 
+		
+        //     modified = str.substring(0, insertPosition) + newstr + str.substring(insertPosition);
+        
+		
+		// System.out.println(modified);
+
+
+
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str=sc.next();
+        String result = hey(str);
+        System.out.print(result);        
+        System.out.println('\n');
+    }
+}
