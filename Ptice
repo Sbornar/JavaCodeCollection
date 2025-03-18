@@ -1,0 +1,105 @@
+import java.util.*;
+
+public class Main {
+    
+    static void ptice(int n, String key) {
+        // Write your code here and print output in this function
+
+        int count =1,NumberCount=0;
+        int iAdrain = 0, iBruno = 0,iGoran = 0;
+        String Adrain ="ABC";
+        String Bruno ="BABC";
+        String Goran = "CCAABB";
+        String Compare=Adrain;
+
+        while(count <= 3)
+        {
+            if(count == 2)
+            {
+               Compare = Bruno;
+            }else if(count == 3)
+            {
+                Compare = Goran;
+            }
+
+            for(int i=0,j=0; i<key.length();i++,j++)
+            {
+                if(j>Compare.length()-1)
+                {
+                    j=0;
+                }
+
+                if(key.charAt(i)==Compare.charAt(j))
+                {
+                    NumberCount++;
+                }
+            }
+            if(count==1)
+            {
+                iAdrain=NumberCount;
+                NumberCount=0;
+            }else if(count == 2)
+            {
+                iBruno=NumberCount;
+                NumberCount=0;
+            }else if(count==3)
+            {
+                iGoran=NumberCount;
+                NumberCount=0;
+            }
+            count++;
+        }
+
+        if(iAdrain>=iBruno && iAdrain>iGoran)
+        {
+            if(iAdrain>iBruno)
+            {
+                System.out.println(iAdrain);
+                System.out.println("Adrian");
+            }else
+            {
+               System.out.println(iAdrain);
+               System.out.println("Adrian");
+               System.out.println("Bruno");
+            }
+        }else if(iBruno>iAdrain && iBruno>=iGoran)
+        {
+            if(iBruno>iGoran)
+            {
+                System.out.println(iBruno);
+                System.out.println("Bruno");
+            }else{
+                System.out.println(iBruno);
+                System.out.println("Bruno");
+                System.out.println("Goran");
+            }
+        }else if(iGoran>=iAdrain && iGoran >iBruno)
+        {
+              if(iGoran>iAdrain)
+              {
+                System.out.println(iGoran);
+                System.out.println("Goran");
+              }else{
+                System.out.println(iGoran);
+                System.out.println("Goran");
+                System.out.println("iAdrian");
+              }
+        }else if(iAdrain==iBruno && iAdrain == iGoran)
+        {
+            System.out.println(iAdrain);
+            System.out.println("Adrian");
+            System.out.println("Bruno");
+            System.out.println("Goran");
+
+        }
+    }  
+  
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n;
+        n = sc.nextInt();
+        String str = sc.next();
+        ptice(n, str);
+        sc.close();
+    }
+}
