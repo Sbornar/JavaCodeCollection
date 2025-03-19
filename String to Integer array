@@ -1,0 +1,55 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+    static ArrayList<Integer> arrayGenerator(String s){ 
+          // write your code here
+
+          ArrayList<Integer> list = new ArrayList<>();
+         
+         String value ="";
+		 int number =0;
+         for(int i = 0;i<s.length();i++)
+		{
+		 if(s.charAt(i) !=',')
+		 {
+
+			value = value + (Character.toString(s.charAt(i)));
+
+		 }else
+		 {
+			 
+             number = Integer.parseInt(value);
+			 list.add(number);
+		     
+			value ="";
+		 }
+		}
+		    number = Integer.parseInt(value);
+			 list.add(number);
+
+        return list; 
+	
+
+    }
+
+    public static void main(String args[]) {
+        Scanner input = new Scanner(System.in);
+        int t = input.nextInt();
+        input.nextLine();
+        while (t-- > 0) {
+            String s = input.nextLine();
+            ArrayList<Integer> ans = arrayGenerator(s);
+            System.out.print("[");
+            for (int i = 0; i < ans.size(); i++) {
+                System.out.print(ans.get(i));
+                if (i != ans.size() - 1) {
+                    System.out.print(", ");
+                }
+            }
+            System.out.println("]");
+        }
+        
+    }
+}
