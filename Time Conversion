@@ -1,0 +1,49 @@
+import java.util.*;
+
+public class Main {
+    static void timeConversion(String s) {
+        //Write your code here
+          
+        int h1 = s.charAt(0)-'0';
+        int h2 = s.charAt(1)-'0';
+        int hh = 0;
+
+        if(h1 ==0)
+        {
+            hh = h2;
+        }else
+        {
+            hh = h1*10+h2;
+        }
+
+        //AM
+
+        if(s.charAt(8)=='A')
+        {
+           if(hh == 12)
+           {
+             System.out.print("00");
+             System.out.print(s.substring(2,8));
+           }else{
+             System.out.print(s.substring(0,8));
+           }
+        }else{
+            if(hh==12)
+            {
+                System.out.print(s.substring(0,8));
+            }else{
+                hh = hh +12;
+                System.out.print(hh);
+                System.out.print(s.substring(2,8));
+            }
+        }
+
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.next();
+        timeConversion(str);
+        sc.close();
+    }
+}
