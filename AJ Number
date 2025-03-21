@@ -1,0 +1,71 @@
+import java.util.*;
+public class Main {
+    public static void main(String args[]) {
+        Scanner input = new Scanner(System.in);
+        int n=input.nextInt();
+        input.nextLine();
+        StringBuilder str=new StringBuilder(input.nextLine());
+        
+        solve(str,n);
+
+        input.close();
+    }
+	
+    public static void solve(StringBuilder str,int n){
+        // WRITE YOUR CODE HERE
+
+        ArrayList<Integer> list = new ArrayList<>();
+        int arr[] ={2,3,5,7,11,13,17,19,23,29};
+        boolean bvalue=false,bvalue1=true;
+
+        for(int i = 0;i<n;i++)
+        {
+            for(int j=i+1;j<n;j++)
+            {
+                 list.add((Integer.parseInt(str.substring(i,j))));             
+            }
+        }
+
+        for(int i =0;i<list.size();i++)
+        {
+            int value = list.get(i);
+            
+            if(value !=0 && value != 1)
+            {
+              for(int j = 0;j<arr.length;j++)
+              {
+                 if(value == arr[j])
+                 {
+                      bvalue = true;
+                      break;
+                 }else if(value%arr[j]==0)
+                 {
+                      bvalue1= false;  
+                 }
+                 
+
+              }
+              if(bvalue != true || bvalue1 != true)
+              {
+                 list.remove(i);
+                 i--;
+              }
+              
+            }else{
+                list.remove(i);
+                i--;
+            }  
+        }
+
+        for(int i=0;i<list.size();i++)
+        {
+            System.out.println(list.get(i));
+        }
+
+
+//81615
+//All substrings: 8, 1, 6, 1, 5, 81, 16, 61, 15, 816, 161, 615, 8161, 1615, 81615
+
+
+    }
+}
