@@ -1,0 +1,55 @@
+import java.util.Scanner;
+
+public class Main {
+   
+    static int findIndex(int[] arr, int n, int k) {
+            // write your code here
+           
+            for( int i = 0;i<n-1;i++)
+            {   int min = i;
+                for(int j=i+1;j<n;j++)
+                {
+                   if(arr[min]>arr[j])
+                   {
+                     min = j;
+                   }
+                }
+               
+                    int temp = arr[min];
+                    arr[min]=arr[i];
+                    arr[i]= temp;
+                   if(arr[i] == k)
+                   {
+                    return i;
+                   }
+            }
+        
+            return -1;
+            //28342
+
+    }
+
+    // Main function
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int n = scanner.nextInt(); // Input size of array
+        int[] arr = new int[n]; // Declare array of size n
+
+        // Input elements into the array
+        for (int i = 0; i < n; i++) {
+            arr[i] = scanner.nextInt();
+        }
+
+        int k = scanner.nextInt(); // Input value of k
+
+        // Call the function findIndex and store the result in index
+        int index = findIndex(arr, n, k);
+
+        // Output the result
+        System.out.println(index);
+
+        scanner.close(); // Close the scanner
+    }
+}
+
