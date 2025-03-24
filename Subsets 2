@@ -1,0 +1,101 @@
+import java.io.*;
+import java.util.*;
+ 
+class Solution
+{
+    static int[][] solve(int n, int[] nums){
+       // Write your code here
+       Arrays.sort(nums);
+       ArrayList<Integer>ds=new ArrayList<>();
+       ArrayList<ArrayList<Integer>>ans=new ArrayList<>();
+
+       f(0,nums,ds,ans);
+       sort2DArrayList(ans);
+       
+
+       int[][] result=new int[ans.size()][];
+
+       for(int i=0;i<ans.size();i++)
+       {
+        result[i]=new int[ans.get(i).size()];
+        for(int j=0;j<ans.get(i).size();j++)
+        {
+            result[i][j]=ans.get(i).get(j);
+        }
+       }
+       return result;
+    
+    }
+    static void f(int idx,int[] nums,ArrayList<Integer>ds,ArrayList<ArrayList<Integer>>ans)
+    {
+        if(idx==nums.length)
+        {
+            if(ds.size()!=0)
+            {
+                ans.add(new ArrayList<>(ds));
+            }
+            return;
+        }
+
+        // pick
+
+        ds.add(nums[idx]);
+        f(idx+1,nums,ds,ans);
+        ds.remove(ds.size()-1);
+
+        // no pick
+
+        while(idx<nums.length-1 && nums[idx]==nums[idx+1])
+        {
+            idx++;
+        }
+        f(idx+1,nums,ds,ans);
+    }
+
+     static void sort2DArrayList(ArrayList<ArrayList<Integer>> list) {
+        Collections.sort(list, new Comparator<ArrayList<Integer>>() {
+            @Override
+            public int compare(ArrayList<Integer> sublist1, ArrayList<Integer> sublist2) {
+                // Compare values up to the minimum of their sizes
+                int minLength = Math.min(sublist1.size(), sublist2.size());
+                for (int i = 0; i < minLength; i++) {
+                    int valueComparison = Integer.compare(sublist1.get(i), sublist2.get(i));
+                    if (valueComparison != 0) {
+                        return valueComparison;
+                    }
+                }
+
+                // If values are the same, compare sizes
+                return Integer.compare(sublist1.size(), sublist2.size());
+            }
+        });
+    }
+}
+public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        PrintWriter wr = new PrintWriter(System.out);
+         int n = Integer.parseInt(br.readLine().trim());
+         String[] arr_nums = br.readLine().split(" ");
+         int[] nums = new int[n];
+         for(int i_nums = 0; i_nums < arr_nums.length; i_nums++)
+         {
+         	nums[i_nums] = Integer.parseInt(arr_nums[i_nums]);
+         }
+ 
+         int[][] out_ = Solution.solve(n, nums);
+         for(int i_out_ = 0; i_out_ < out_.length; i_out_++)
+         {
+         	System.out.print(out_[i_out_][0]);
+         	for(int j_out_ = 1; j_out_ < out_[i_out_].length; j_out_++)
+         	{
+         		System.out.print(" " + out_[i_out_][j_out_]);
+         	}
+         	System.out.println("");
+         }
+ 
+         wr.close();
+         br.close();
+    }
+    
+}
