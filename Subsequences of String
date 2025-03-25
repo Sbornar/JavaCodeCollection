@@ -1,0 +1,61 @@
+import java.io.*;
+import java.util.*;
+ 
+class Solution
+{
+    static String[] solve(String STR){
+       // Write your code here
+        
+         
+         ArrayList<String> list = new ArrayList<>();
+         
+         printsubsequence(STR,list,"");
+         
+
+         Collections.sort(list);
+        String[] str = new String[list.size()];
+        for(int i =0;i<list.size();i++)
+        {
+             str[i]=list.get(i);
+        }
+        return str;
+    
+    
+    }
+    public static void printsubsequence(String que,ArrayList<String>list,String asf)
+    {
+
+        if(que.length()==0 && asf.length()!= 0)
+        {
+            
+            list.add(asf);
+            return;
+        }
+        if(asf.length()==0 && que.length()==0)
+        {
+            return;
+        }
+        
+        char ch = que.charAt(0);
+        printsubsequence(que.substring(1),list,asf+ch);
+        printsubsequence(que.substring(1),list,asf);
+        
+    }
+}
+public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        PrintWriter wr = new PrintWriter(System.out);
+         String STR = br.readLine();
+ 
+         String[] out_ = Solution.solve(STR);
+         for (int i_out_ = 0; i_out_ < out_.length; i_out_++)
+         {
+         	System.out.print(out_[i_out_]+" ");
+         }
+ 
+         wr.close();
+         br.close();
+    }
+    
+}
