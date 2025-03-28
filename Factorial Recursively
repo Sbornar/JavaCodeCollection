@@ -1,0 +1,28 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println(factorial_recursive(n));
+        sc.close();
+    }
+
+    public static long factorial_recursive(int n) {
+        // your code here
+        long sum=1;
+        long value =0;
+        if(n==1)
+        {
+            sum=sum*n;
+            return sum;
+        }
+
+       value =factorial_recursive(n-1);
+       
+        sum  =n*value;
+        return sum;
+
+
+    }
+}
