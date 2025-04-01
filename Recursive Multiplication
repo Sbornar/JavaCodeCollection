@@ -1,0 +1,30 @@
+import java.io.*;
+import java.util.*;
+public class Main {
+  public static void multiplyRecursively(int n, int m) {
+    //Write code here and print output
+
+    int resutl = 0;
+
+    resutl =multiplyRecursivelyHelp(n,m);
+    System.out.println(resutl);
+    
+  }
+  public static int multiplyRecursivelyHelp(int n,int m)
+  {
+      if(n==1)
+      {
+        return m;
+      }
+      int mul = multiplyRecursivelyHelp(n-1,m);
+      mul +=m;
+      return mul;
+  }
+
+  public static void main(String[] args) {
+    Scanner scn = new Scanner(System.in);
+    int n = scn.nextInt();
+    int m = scn.nextInt();
+    multiplyRecursively(n, m);
+  }
+}
