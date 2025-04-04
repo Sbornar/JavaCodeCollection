@@ -1,0 +1,24 @@
+import java.util.*;
+
+public class Main {
+	static int numOfDigi(int n) {
+        //Write code here
+        int i =1,sum=1;
+        if(n==0)
+        {
+            return 0;
+        }
+        
+        i=numOfDigi(n/=10);
+        sum = sum +i;
+        return sum;
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n;
+        n = sc.nextInt();
+        int result = numOfDigi(n);
+        System.out.println(result);
+        sc.close();
+    }
+}
