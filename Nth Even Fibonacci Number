@@ -1,0 +1,43 @@
+import java.util.*;
+import static java.lang.Math.ceil;
+
+public class Main {
+	static long NthEvenFibonacci(long n) {
+        //Write your code here
+
+        long m = 0;
+        long result=NthEvenFibonacciHelp(n);
+        return result;
+
+    }
+    static long NthEvenFibonacciHelp(long n)
+    { 
+        long MOD = 1000000007;
+        long result = 0;
+        long first = 2,second =8;
+       // int i =3;
+
+        if(n==1)
+        {
+            return first;
+        }
+        if(n==2)
+        {
+            return second;
+        }
+          for (int i = 3; i <= n; i++) {
+            result = (4 * second % MOD + first % MOD) % MOD;
+            first = second;
+            second = result;
+        }
+        return result;
+        
+      
+    }
+        
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        long n = sc.nextLong();
+        System.out.println(NthEvenFibonacci(n));
+    }
+}
