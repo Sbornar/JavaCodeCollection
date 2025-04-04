@@ -1,0 +1,36 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println(count7(n));
+        sc.close();
+    }
+
+    public static int count7(int n) {
+        // your code here
+        
+        int sum =1;
+        int i = 0;
+        if(n==0)
+        {
+            return 0;
+        }
+          
+        i = count7(n/10);
+       int  value = n%10;
+        if(value==7)
+        {
+            sum=sum+i;
+             return sum;
+        }
+        return i;
+       
+
+        
+
+
+
+    }
+}
