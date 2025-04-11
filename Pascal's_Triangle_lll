@@ -1,0 +1,27 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+public class Main {
+
+    public static void solve(int A) {
+        
+        //your code here
+         for (int i = 0; i < A; i++) {
+            int val = 1; // First value in every row is 1
+            for (int j = 0; j <= i; j++) {
+                System.out.print(val + " ");
+                // Compute next value using formula: val = val * (i - j) / (j + 1)
+                val = val * (i - j) / (j + 1);
+            }
+            System.out.println(); // Move to the next line after each row
+        }
+    }
+  public static void main (String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+	  int K = sc.nextInt();
+      solve(K);
+      
+	}
+}
