@@ -1,0 +1,36 @@
+import java.io.*;
+import java.util.*;
+
+class Solution{
+    static String complement(String bi){
+        //Write your code here
+         int n = bi.length();
+        char[] onesComp = new char[n];
+
+        // Step 1: One's complement (flip bits)
+        for (int i = 0; i < n; i++) {
+            onesComp[i] = bi.charAt(i) == '0' ? '1' : '0';
+        }
+
+        // Step 2: Add 1 to one's complement
+        for (int i = n - 1; i >= 0; i--) {
+            if (onesComp[i] == '0') {
+                onesComp[i] = '1';
+                break;
+            } else {
+                onesComp[i] = '0';
+            }
+        }
+
+        return new String(onesComp);
+    }
+    
+}
+public class Main{
+    public static void main(String args[])throws IOException{
+        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+        String bi = in.readLine();
+        Solution ob = new Solution();
+        System.out.println(ob.complement(bi));
+    }
+}
