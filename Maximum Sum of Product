@@ -1,0 +1,67 @@
+import java.util.*;
+
+class Solution {
+    public static int maxProduct(int[] a, int[] b) {
+        //Write your code here
+         int n = a.length;
+        long originalSum = 0;
+
+        // Step 1: Calculate original sum
+        for (int i = 0; i < n; i++) {
+            originalSum += (long) a[i] * b[i];
+        }
+
+        long maxSum = originalSum;
+
+        // Step 2: Try all odd-length reversals (centered at i)
+        for (int center = 0; center < n; center++) {
+            int l = center - 1;
+            int r = center + 1;
+            long change = 0;
+
+            while (l >= 0 && r < n) {
+                change += (long) a[l] * b[r] + (long) a[r] * b[l] - (long) a[l] * b[l] - (long) a[r] * b[r];
+                maxSum = Math.max(maxSum, originalSum + change);
+                l--;
+                r++;
+            }
+        }
+
+        // Step 3: Try all even-length reversals (centered between i and i+1)
+        for (int center = 0; center < n - 1; center++) {
+            int l = center;
+            int r = center + 1;
+            long change = 0;
+
+            while (l >= 0 && r < n) {
+                change += (long) a[l] * b[r] + (long) a[r] * b[l] - (long) a[l] * b[l] - (long) a[r] * b[r];
+                maxSum = Math.max(maxSum, originalSum + change);
+                l--;
+                r++;
+            }
+        }
+
+        return (int) maxSum;
+       
+       
+    }
+    
+}
+
+
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+       int n = sc.nextInt();
+        int[] a = new int[n];
+        int[] b = new int[n];
+        for (int i = 0; i < n; i++) {
+            a[i] = sc.nextInt();
+        }
+        for (int i = 0; i < n; i++) {
+            b[i] = sc.nextInt();
+        }
+        int ans = Solution.maxProduct(a, b);
+        System.out.println(ans);
+    }
+}
