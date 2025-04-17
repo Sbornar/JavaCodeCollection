@@ -1,0 +1,38 @@
+import java.util.*;
+
+public class Main {
+    static String noX(String s) {
+        // Write your code here
+        StringBuilder str = new StringBuilder(s);
+        StringBuilder st = noxHelp(str ,0);
+        String str1 = st.toString();
+        return str1;
+    }
+    static StringBuilder noxHelp(StringBuilder str,int n)
+    {
+           if(n== str.length()-1)
+           {
+              if(str.charAt(n)=='x')
+              {
+                 str.deleteCharAt(n);
+              }
+             return str;
+           }
+           StringBuilder strreturn =noxHelp(str,n+1);
+           if(strreturn.charAt(n)=='x')
+           {
+             strreturn.deleteCharAt(n);
+             return strreturn;
+           }
+           return strreturn;
+    }
+
+
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String s = sc.nextLine();
+        System.out.println(noX(s));
+    }
+}
