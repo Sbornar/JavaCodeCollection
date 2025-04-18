@@ -1,0 +1,44 @@
+import java.util.*;
+import static java.lang.Math.ceil;
+
+class Accio {
+    public int ClimbingStairs(int n) {
+        // Write your code here
+        
+       int num = stairpath(n,0);
+       return num;
+
+
+    }
+    public int stairpath(int n , int val)
+    {
+        if(n == 0)
+        {
+            val +=1;
+            return val;
+        }
+        if(n<0)
+        {
+            return val;
+        }
+        //step 1
+        val = stairpath(n-1,val);
+        // step 2
+        val=stairpath(n-2,val);
+        return val;
+
+
+
+
+
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        Accio Obj = new Accio();
+        System.out.println(Obj.ClimbingStairs(n));
+    }
+}
