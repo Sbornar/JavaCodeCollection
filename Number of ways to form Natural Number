@@ -1,0 +1,25 @@
+import java.io.*;
+import java.util.*;
+public class Main {
+    public static long ways(int n, int start){
+           //Write your code here
+        if (n == 0) return 1; // Found a valid combination
+        if (n < 0) return 0;  // Invalid path
+        
+        int count = 0;
+        for (int i = start; i <= n; i++) {
+            count += ways(n - i, i + 1); // Ensure uniqueness by using `i + 1`
+        }
+        
+        return count;
+
+    }
+
+   
+    
+    public static void main(String args[]) {
+        Scanner input = new Scanner(System.in);
+        int n = input.nextInt();
+        System.out.println(ways(n, 1));
+    }
+}
