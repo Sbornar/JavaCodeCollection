@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class Main {
+    static int countX(String str, int i, int n) {
+        //Write your code here
+        int count = 0;
+      
+        if(i==n-1)
+        {
+            if(str.charAt(i)=='x')
+           {
+             count +=1;
+           }
+            return count;
+        }
+        count = countX(str,i+1,n);
+        if(str.charAt(i)=='x')
+        {
+            count+=1;
+            return count;
+        }
+        return count;
+
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        int n=str.length();
+        System.out.println(countX(str,0,n));
+    }
+}
