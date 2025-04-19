@@ -1,0 +1,33 @@
+import java.util.*;
+
+public class Main {
+    static int CountABC(String str, int i) {
+        // Write your code here
+           String s1 = "abc";
+           String s2="aba";
+           int n=str.length();
+        return CountABCHelp(str,i,s1,s2,n,0,0);
+        
+    }
+    public static int CountABCHelp(String str,int i,String s1,String s2,int n,int count,int j)
+    {
+
+        if(str.charAt(i)==s1.charAt(j))
+        {
+            
+        }
+          if(i==n-1)
+          {
+            return;
+          }
+
+
+          
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        System.out.println(CountABC(s, 0));
+
+    }
+}
