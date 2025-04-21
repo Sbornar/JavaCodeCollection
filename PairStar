@@ -1,0 +1,34 @@
+import java.util.*;
+
+public class Main {
+    static String PairStar(String str) {
+        //Write your code here
+        StringBuilder sb=new StringBuilder(str);
+      
+        StringBuilder result =  PairStarhelp(sb,1,0);
+        return result.toString();
+    }
+    public static StringBuilder PairStarhelp(StringBuilder sb,int next,int prev)
+    {
+        if(next == sb.length()-1)
+        {
+             if(sb.charAt(next)==sb.charAt(prev))
+           {
+            sb.insert(next,'*');
+            }
+            return sb;
+        }
+        if(sb.charAt(next)==sb.charAt(prev))
+        {
+            sb.insert(next,'*');
+        }
+
+        sb=PairStarhelp(sb,next+1,prev+1);
+        return sb;
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        System.out.println(PairStar(s));
+    }
+}
