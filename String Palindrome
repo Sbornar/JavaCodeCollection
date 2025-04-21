@@ -1,0 +1,43 @@
+import java.io.*;
+import java.util.Scanner;
+
+public class Main {
+
+    static boolean isPalindrome(String str){
+        // Write your code here
+        int end = str.length()-1;
+        return isPalindromehelp(str,0,end);
+
+
+
+    }
+    static boolean isPalindromehelp(String str,int start,int end)
+    {
+           boolean bvalue = true;
+            if(start<end)
+            {
+                if(str.charAt(start)!= str.charAt(end))
+                {
+                   bvalue= false;
+                   return bvalue;
+                }
+            }else
+            {
+                return bvalue;
+            }
+            bvalue = isPalindromehelp(str,start+1,end-1);
+            return bvalue;
+
+
+
+    }
+    public static void main (String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str= sc.nextLine();
+        boolean result=isPalindrome(str);
+        if(result)
+            System.out.print("YES");
+        else
+            System.out.print("NO");
+    }
+}
