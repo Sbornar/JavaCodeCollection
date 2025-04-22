@@ -1,0 +1,34 @@
+import java.io.*;
+import java.util.*;
+
+public class Main{
+    static int countMazePath(int n, int m)
+    {
+        //Write your code here
+        return helper(n,m,0,1,1);
+    }
+    public static int helper(int n,int m,int ans,int i,int j)
+    {
+        if(i==n && j==m)
+        {
+            ans+=1;
+            return ans;
+        }
+        if(i>n || j>m)
+        {
+            return ans;
+        }
+        // horizontal move
+       ans= helper(n,m,ans,i,j+1);
+       // vertical move
+       return helper(n,m,ans,i+1,j);
+    }
+	public static void main(String args[])
+    {
+        Scanner sc = new Scanner(System.in);
+        int m, n;
+        n = sc.nextInt();
+        m = sc.nextInt();
+        System.out.println(countMazePath(n, m));
+    }
+}
