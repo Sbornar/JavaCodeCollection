@@ -1,0 +1,43 @@
+import java.util.*;
+
+public class Main {
+    public static void printEncodings(String str) {
+        // Write your code here
+        String[] encodings={"","a","b","c","d","e","f","j","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"};
+		helper(str,"",encodings);
+    }
+    public static void helper(String ques,String asf,String[] encodings )
+    {
+        if(ques.length()==0)
+        {
+            System.out.println(asf);
+            return;
+        }
+        if(ques.charAt(0)=='0')
+        {
+            return;
+        }
+        //option1
+        char c = ques.charAt(0);
+        String opt1 = encodings[c-'0'];
+        helper(ques.substring(1),asf+opt1,encodings);
+        
+        // option2
+
+        if(ques.length()>=2)
+        {
+          String g2=ques.substring(0,2);
+          int num = Integer.valueOf(g2);
+          if(num<=26)
+          {
+            String opt2 =encodings[num];
+            helper(ques.substring(2),asf+opt2,encodings);
+          }
+        }
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        printEncodings(str);
+    }
+}
