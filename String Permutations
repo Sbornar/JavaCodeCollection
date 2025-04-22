@@ -1,0 +1,46 @@
+import java.util.*;
+class Accio {
+    
+    public void printPermutations(String str) {
+        // write your code here
+       String asf = "";
+       ArrayList<String> arr = new ArrayList<>();
+        helper(str,asf,arr);
+        Collections.sort(arr);
+        String l="";
+        for(int i =0;i<arr.size();i++)
+        {
+            String p= arr.get(i);
+            if(l.equals(p)==false)
+            {
+                System.out.println(p);
+                l=p;
+            }
+        }
+    }
+
+    public void helper(String ques,String asf,ArrayList<String> arr)
+    {
+        if(ques.length()==0)
+        {
+            arr.add(asf);
+            return;
+        }
+        for(int i=0;i<ques.length();i++)
+        {
+            char ch = ques.charAt(i);
+            String left = ques.substring(0,i);
+            String rigth = ques.substring(i+1);
+            helper(left+rigth,asf+ch,arr);
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        Accio Obj = new Accio();
+        Obj.printPermutations(str);
+    }
+}
