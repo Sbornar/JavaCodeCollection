@@ -1,0 +1,42 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static ArrayList<String> generateSubsequences(String str)
+    {
+        // write your code here 
+        ArrayList<String> list = new ArrayList<>(); 
+        Collections.sort(helper(str,"",list));
+        if(list.get(0)=="")
+        {
+            list.remove(0);
+            return list;
+        }
+        return list;
+
+    }
+	public static ArrayList<String> helper(String ques,String asf,ArrayList list)
+    {
+        if(ques.length()==0)
+        {
+           list.add(asf);
+           return list;
+        }
+        char ch =ques.charAt(0);
+        String roq = ques.substring(1);
+        list=helper(roq,asf+ch,list);
+         return helper(roq,asf,list);
+       
+     
+    }
+
+	public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s;
+        s = sc.nextLine();
+        ArrayList<String> res = generateSubsequences(s);
+        for(int i=0;i<res.size();i++){
+            System.out.println(res.get(i));
+        }
+    }
+}
