@@ -1,0 +1,120 @@
+import java.util.*;
+import java.io.*;
+class Node{
+    int data;
+    Node next;
+    Node(int data){
+        this.data = data;
+        next = null;
+    }
+}
+class LinkedList{
+    Node head;
+    void add(int data){
+        Node new_node = new Node(data);
+        if(head == null){
+            head = new_node;
+            return;
+        }
+        Node curr = head;
+        while(curr.next != null)
+            curr = curr.next;
+        curr.next = new_node;
+    }
+}
+public class Main {
+    public static Node reverse(Node node){
+        Node prev = null;
+        Node curr = node;
+        Node next = null;
+        while(curr != null){
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        node = prev;
+        return node;
+    }
+    
+public static void combine(Node a, Node b, LinkedList ans){
+            // write your code here
+
+            Node temp1 = a;
+            Node temp2 = b;
+           // Node temp3=ans;
+
+            int iDigit = 0,carry = 0,val1=0,val2=0;
+
+            while(temp1!=null || temp2!=null || carry>0)
+            {
+                if(temp1!=null)
+                {
+                    val1 = temp1.data;
+                     temp1 = temp1.next;
+                }
+                if(temp2 != null)
+                {
+                    val2 = temp2.data;
+                     temp2=temp2.next;
+                }
+
+                iDigit =val1+val2;
+                iDigit += carry;
+
+                if(iDigit>9)
+                {
+                    ans.add(iDigit%10);
+                    carry =1;
+
+                }
+                if(iDigit<10)
+                {
+                    ans.add(iDigit);
+                    carry=0;
+                }
+
+                // temp1 = temp1.next;
+                // temp2=temp2.next;
+               // temp3=temp3.next;
+                val1=0;
+                val2=0;
+            }
+            // if(carry>0)
+            // {
+            //     ans.add(carry);
+            //     carry=0;
+            // }
+
+
+
+
+
+
+
+    }
+    public static void main(String args[]) {
+        Scanner input = new Scanner(System.in);
+        int n = input.nextInt();
+        int m = input.nextInt();
+        LinkedList a = new LinkedList();
+        LinkedList b = new LinkedList();
+        for(int i = 0; i < n; i++){
+            a.add(input.nextInt());
+        }
+        for(int i = 0; i < m; i++){
+            b.add(input.nextInt());
+        }
+        a.head = reverse(a.head);
+        b.head = reverse(b.head);
+        LinkedList ans = new LinkedList();
+        combine(a.head, b.head, ans);
+        ans.head = reverse(ans.head);
+        Node h = ans.head;
+        while(h != null){
+            System.out.print(h.data + " ");
+            h = h.next;
+        }
+        System.out.println("");
+    }
+}
