@@ -1,0 +1,105 @@
+import java.util.*;
+
+
+public class Main {
+    public static void main(String[] args) throws Throwable {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        LinkedList llist= new LinkedList(); 
+        int a1=sc.nextInt();
+        Node head= new Node(a1);
+        llist.addToTheLast(head);
+        for (int i = 1; i < n; i++) 
+        {
+            int a = sc.nextInt(); 
+            llist.addToTheLast(new Node(a));
+        }
+            
+        Solution A = new Solution();
+        A.checkLinkedListPalindrome(llist.head);
+        
+    }
+}
+
+class Node
+    {
+        int data;
+        Node next;
+        Node(int d) {data = d; next = null; }
+    }
+    
+class LinkedList
+{
+    Node head;  
+    Node tail;
+    public void addToTheLast(Node node) 
+    {
+      if (head == null) 
+      {
+       head = node;
+       tail = node;
+      } 
+      else 
+      {
+       tail.next = node;
+       tail = node;
+      }
+    }
+      void printList()
+    {
+        Node temp = head;
+        while (temp != null)
+        {
+           System.out.print(temp.data+" ");
+           temp = temp.next;
+        }  
+        System.out.println();
+    }
+    
+}
+
+class Solution
+{
+    static void checkLinkedListPalindrome(Node head)
+    {
+        //Your code here
+        Node temp = head;
+        Node Nnode = head;
+        
+        Node current = Nnode;
+        Node prev = null;
+        while(current != null)
+        {
+             Node forword = current.next;
+             current.next = prev;
+              prev = current;
+             current = forword;
+            
+        }
+        Nnode = prev;
+        current = Nnode;
+        boolean bvalue = true;
+        while(temp!=null && current!=null)
+        {
+            if(temp.data != current.data)
+            {
+                System.out.println("NO");
+                bvalue = false;
+                return;
+            }
+            temp=temp.next;
+            current=current.next;
+        }
+        if(bvalue== true)
+        {
+            System.out.println("YES");
+        }   
+        
+        
+
+
+
+
+    }
+    
+}
