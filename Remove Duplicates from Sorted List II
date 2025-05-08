@@ -1,0 +1,106 @@
+import java.util.*;
+
+class Node {
+    int data;
+    Node next;
+
+    Node(int key) {
+        data = key;
+        next = null;
+    }
+}
+
+class Solution {
+    public Node solve(Node head) {
+        // Write your code here
+         Node dummy  = new Node(-1);
+
+         dummy.next = head;
+
+         Node prev = dummy;
+         Node curr= dummy;
+         Node temp=head;
+         while(temp != null && temp.next != null)
+         {
+            curr=temp;
+            temp=temp.next;
+            if(curr.data == temp.data)
+            {
+                while(curr.data == temp.data && temp != null && temp.next != null)
+                {
+                    temp=temp.next;
+                }
+                if(temp.next==null || temp == null){
+                    if(temp.data != prev.data && curr.data != temp.data)
+                    {
+                        prev.next=temp;
+                        prev=temp;
+                        return dummy.next;
+                    }
+                    prev.next=null;
+                    return dummy.next;
+                }
+            }else{
+                    prev = curr;
+                }
+                prev.next=temp;
+            
+         }
+         return dummy.next;
+
+
+
+
+
+
+
+
+
+
+    }
+}
+
+class Main {
+    static Node head;
+    static Node temp;
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        int n = sc.nextInt();
+        int a1 = sc.nextInt();
+        head = null;
+        temp = null;
+        addToTheLast(a1);
+
+        for (int i = 1; i < n; i++) {
+            int data = sc.nextInt();
+            addToTheLast(data);
+        }
+        Solution ans = new Solution();
+        Node node = ans.solve(head);
+        printList(node);
+        System.out.println();
+        sc.close();
+    }
+
+    public static void addToTheLast(int data) {
+        if (head == null) {
+            head = new Node(data);
+            temp = head;
+            return;
+        } else {
+            Node new_node = new Node(data);
+            temp.next = new_node;
+            temp = temp.next;
+            return;
+        }
+    }
+
+    public static void printList(Node node) {
+        while (node != null) {
+            System.out.print(node.data + " ");
+            node = node.next;
+        }
+    }
+}
