@@ -1,0 +1,87 @@
+import java.io.*;
+import java.util.*;
+ 
+class Node{
+    int data;
+    Node next;
+    Node(int data){
+        this.data = data;
+        next = null;
+    }
+}
+class LinkedList{
+    Node head;
+    void add(int data ){
+        Node new_node = new Node(data);
+        if(head == null){
+            head = new_node;
+            return;
+        }
+        Node current = head;
+        while(current.next !=null){
+            current = current.next;
+        }
+        current.next = new_node;
+    }
+}
+
+class Solution {
+    public void partition(Node head, int x) {
+        // Your code here
+
+        Node d1=new Node(-1);
+        Node d2=new Node(-1);
+
+        Node tl=d1;
+        Node tg=d2;
+
+        Node current=head;
+        while(current!=null)
+        {
+            if(current.data<x)
+             {
+                tl.next=current;
+                tl=tl.next;
+             }else
+             {
+                tg.next=current;
+                tg=tg.next;
+             }
+             current=current.next;
+        }
+        tl.next=null;
+        tg.next=null;
+        tl.next=d2.next;
+        tl=d1.next;
+        while(tl!=null)
+        {
+            System.out.print(tl.data+" ");
+            tl=tl.next;
+        }
+
+
+
+
+
+
+
+
+
+
+    }
+}
+
+public class Main {
+    
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        LinkedList l1= new LinkedList();
+        for(int i=0;i<n;i++){
+            l1.add(sc.nextInt());
+        }
+        int x = sc.nextInt();
+        Solution Ob = new Solution();
+        Ob.partition(l1.head, x);
+    }
+}
