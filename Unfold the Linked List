@@ -1,0 +1,99 @@
+import java.io.*;
+import java.util.*;
+ 
+class Node{
+    int data;
+    Node next;
+    Node(int data){
+        this.data = data;
+        next = null;
+    }
+}
+class LinkedList{
+    Node head;
+    void add(int data ){
+        Node new_node = new Node(data);
+        if(head == null){
+            head = new_node;
+            return;
+        }
+        Node current = head;
+        while(current.next !=null){
+            current = current.next;
+        }
+        current.next = new_node;
+    }
+}
+
+class Solution {
+    static void unfold(Node head)
+    {
+     // Your code here
+     Node dummyodd = new Node(-1);
+    
+     Node dummyeven = new Node(-1);
+    
+
+     Node tOdd = dummyodd;
+     Node teven = dummyeven;
+     Node temp = head;
+     
+     boolean bvalue = true;
+     while(temp != null)
+     {
+        if(bvalue == true)
+        {
+           teven.next=temp;
+           teven=teven.next;
+           bvalue=false;
+        }else
+        {
+           tOdd.next=temp;
+           tOdd=tOdd.next;
+           bvalue=true;
+        }
+        temp=temp.next;
+     }
+     tOdd.next=null;
+     teven.next=null;
+    Node rh= revers(dummyodd.next);
+      teven.next=rh;
+      teven=dummyeven.next;
+    while(teven!=null)
+    {
+        System.out.print(teven.data+" ");
+        teven=teven.next;
+    }
+
+
+    }
+    public static Node revers(Node head)
+    {
+        Node prev = null;
+        Node current=head;
+
+        while(current!=null)
+        {
+            Node forword = current.next;
+            current.next=prev;
+            prev=current;
+            current=forword;
+
+
+        }
+        return prev;
+    }
+}
+public class Main {
+    
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        LinkedList l1= new LinkedList();
+        for(int i=0;i<n;i++){
+            l1.add(sc.nextInt());
+        }
+        Solution Ob = new Solution();
+        Ob.unfold(l1.head);
+    }
+}
